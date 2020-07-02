@@ -33,10 +33,10 @@ function UserScreen() {
   );
 }
 
-function FlowScreen() {
+function FeedScreen() {
   return (
     <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <Text>Flow!</Text>
+      <Text>Feed!</Text>
     </View>
   );
 }
@@ -57,8 +57,8 @@ export default function App() {
               }}
             />
             <Tab.Screen
-              name="Flow"
-              component={FlowScreen}
+              name="Feed"
+              component={FeedScreen}
               options={{
                 tabBarIcon: () => <FontAwesome5 name="list" size={24} />,
               }}
