@@ -1,13 +1,16 @@
 import React, { useState } from "react";
-import { View, Text, TouchableOpacity } from "react-native";
-import styled from "styled-components/native";
+import { View } from "react-native";
 import { Space } from "./components/Space";
+import { HeaderText } from "./shared_styled";
+import { PressableText } from "./components/PressableText";
 
 export const LoginScreen: React.FC = ({ children }) => {
   const [authenticated, setAuthenticated] = useState(false);
 
   if (authenticated) {
-    return <>{children}</>;
+    console.log("Rendering auth");
+
+    return <View style={{ width: "100%", height: "100%" }}>{children}</View>;
   }
 
   return (
@@ -23,15 +26,13 @@ export const LoginScreen: React.FC = ({ children }) => {
         }}
       >
         <View style={{ flex: 2 }} />
-        <Text
+        <HeaderText
           style={{
             flex: 1,
-            fontSize: 36,
-            fontWeight: "900",
           }}
         >
           Sustain A Bit
-        </Text>
+        </HeaderText>
       </View>
       <View style={{ flex: 1, alignItems: "center" }}>
         <PressableText
@@ -51,21 +52,3 @@ export const LoginScreen: React.FC = ({ children }) => {
     </View>
   );
 };
-
-interface PressableTextProps {
-  text: string;
-  onPress: () => void;
-}
-
-const PressableText: React.FC<PressableTextProps> = ({ text, onPress }) => {
-  return (
-    <TouchableOpacity onPress={onPress}>
-      <StyledPressableText>{text}</StyledPressableText>
-    </TouchableOpacity>
-  );
-};
-
-const StyledPressableText = styled.Text`
-  color: #32c50d;
-  font-size: 18;
-`;
